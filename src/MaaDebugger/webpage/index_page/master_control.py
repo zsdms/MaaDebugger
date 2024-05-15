@@ -281,6 +281,8 @@ async def run_task_control():
     ui.button("Stop", on_click=lambda: on_click_stop())
 
     async def on_click_start():
+        on_click_load();
+        StatusIndicator(GlobalStatus, "task_running")
         GlobalStatus.task_running = Status.RUNNING
 
         if not entry_input.value:
